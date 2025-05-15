@@ -3,6 +3,7 @@
 
 class Dashboard extends Controller {
     public function index() {
+        // $data["name"] = $this->model("Student_Model")->getStudent();
         $data["title"] = "Admin - Dashboard";
         $data["jumlah_dosen"] = 99999999;
         $data["jumlah_mahasiswa"] = 999999999999;
