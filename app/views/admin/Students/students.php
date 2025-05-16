@@ -25,7 +25,7 @@
             <td><?= $student["status"] ?></td>
             <td>
                 <div class="d-flex justify-content-center gap-2">
-                    <a href="<?= BASE_URL; ?>detail/student/<?= $student["id"] ?>" class="btn btn-sm btn-success">Detail</a>
+                    <a href="<?= BASE_URL; ?>students/detail/<?= $student["id"] ?>" class="btn btn-sm btn-success">Detail</a>
                     <a href="#" class="btn btn-sm btn-primary">Edit</a>
                     <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                 </div>
