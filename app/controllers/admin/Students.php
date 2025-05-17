@@ -20,6 +20,20 @@ class Students extends Controller {
         $this->view("Students/student_detail", $data);
         $this->view("templates/footer");
     }
+
+    public function add(){
+        if ( $_SERVER['REQUEST_METHOD'] === "POST" ){
+            if ( isset($_POST["add"]) ){
+                $this->model("Student_Model")->add_student($_POST, $_FILES["photo"]);
+            }
+        }
+
+        $data["title"] = "Tambah Data mahasiswa";
+
+        $this->view("templates/header", $data);
+        $this->view("Students/student_add");
+        $this->view("templates/footer");
+    }
     
 
     public function edit($id) {

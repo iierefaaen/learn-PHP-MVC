@@ -25,7 +25,7 @@
           <a class="nav-link" href="<?= BASE_URL; ?>students">Students</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a href="<?= BASE_URL; ?>students/add" class="nav-link">Add</a>
         </li>
       </ul>
     </div>
