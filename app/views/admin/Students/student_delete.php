@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-danger text-white">
             <h4 class="mb-0">Student Detail</h4>
         </div>
 
@@ -104,10 +104,8 @@
 
             <div class="d-flex justify-content-center">
                 <a href="<?= BASE_URL; ?>students" class="btn btn-secondary">Back</a>
-                <a href="<?= BASE_URL ?>students/edit/<?= 
-                $data["student"]["id"];?>" class="btn btn-primary ms-2">Edit</a>
                 <a href="<?= BASE_URL ?>students/delete/<?= 
-                $data["student"]["id"];?>" class="btn btn-danger ms-2">Delete</a>
+                $data["student"]["id"];?>/yes" class="btn btn-danger ms-2">Delete</a>
             </div>
         </div>
     </div>
