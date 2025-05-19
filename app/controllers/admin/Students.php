@@ -44,7 +44,13 @@ class Students extends Controller {
     
 
     public function edit($id) {
-        echo "EDIT";
+        $data["student"] = $this->model("Student_Model")->getStudentByID($id);
+
+        $data["title"] = "Edit Data mahasiswa";
+
+        $this->view("templates/header", $data);
+        $this->view("Students/student_edit", $data);
+        $this->view("templates/footer");
     }
 
     public function delete($id, $bool = null) {

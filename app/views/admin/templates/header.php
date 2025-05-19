@@ -7,25 +7,25 @@
 </head>
 <body>
 <div style="background-color: #6610f2;">
-  <nav class="navbar navbar-expand-lg">
+  <nav class="mb-3 navbar navbar-expand-lg">
     <div class="container-fluid container">
-      <a class="navbar-brand" href="<?= BASE_URL; ?>">Navbar</a>
+      <a class="text-light text-opacity-50 navbar-brand" href="<?= BASE_URL; ?>">AcademicAPP</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?= BASE_URL; ?>">Home</a>
+            <a class="nav-link active text-white" aria-current="page" href="<?= BASE_URL; ?>">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="">Disabled</a>
+            <a class="nav-link disabled text-white" href="">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= BASE_URL; ?>students">Students</a>
+            <a class="nav-link text-white" href="<?= BASE_URL; ?>students">Students</a>
           </li>
           <li class="nav-item">
-            <a href="<?= BASE_URL; ?>students/add" class="nav-link">Add</a>
+            <a class="nav-link text-white" href="<?= BASE_URL; ?>students/add">Add</a>
           </li>
         </ul>
       </div>
