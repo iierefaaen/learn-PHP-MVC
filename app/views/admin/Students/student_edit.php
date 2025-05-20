@@ -7,7 +7,7 @@
             <form action="" method="POST" enctype="multipart/form-data">
 
                 <div class="card-body text-center">
-                    <img src="path/to/foto.jpg"
+                    <img src="<?= $data["student"]["foto"]; ?>"
                     class="rounded-circle border border-3 border-primary d-block mx-auto my-4"
                     style="width: 120px; height: 120px; object-fit: cover;"
                     alt="Foto Mahasiswa">
@@ -85,12 +85,17 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Foto Profil</label>
+                    <input type="file" class="form-control" name="photo" id="fotoInput">
+                </div>
+
+                <div class="mb-3">
                     <label for="status" class="form-label">Status</label>
                     <select class="form-select" id="status" name="status">
-                    <option <?= $data['student'] === 'Aktif' ? 'selected' : ''; ?> value="Aktif">Aktif</option>
-                    <option <?= $data["student"] === "Cuti" ? 'selected' : ""; ?> value="Cuti">Cuti</option>
-                    <option <?= $data["student"] === "Dropout" ? 'selected' : ""; ?> value="Dropout">Drop Out</option>
-                    <option <?= $data["student"] === "Lulus" ? 'selected' : ""; ?> value="Lulus">Lulus</option>
+                    <option <?= $data['student']["status"] === 'Aktif' ? 'selected' : ''; ?> value="Aktif">Aktif</option>
+                    <option <?= $data["student"]["status"] === "Cuti" ? 'selected' : ""; ?> value="Cuti">Cuti</option>
+                    <option <?= $data["student"]["status"] === "Dropout" ? 'selected' : ""; ?> value="Dropout">Drop Out</option>
+                    <option <?= $data["student"]["status"] === "Lulus" ? 'selected' : ""; ?> value="Lulus">Lulus</option>
                     </select>
                 </div>
                 </div>

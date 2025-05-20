@@ -42,4 +42,47 @@ class Functions {
 
         return null;
     }
+
+
+    public static function print_alert_modal($title = "Pemberitahuan", $message = "", $type = "info"){
+        $icons = [
+            'success' => '✅',
+            'error'   => '❌',
+            'warning' => '⚠️',
+            'info'    => 'ℹ️'
+        ];
+
+        $icon = $icons[$type] ?? 'ℹ️';
+
+        echo '
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+            <div id="alertModal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header bg-' . $type . ' text-white">
+                        <h5 class="modal-title">' . $title . '</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="fw-bold">' . $icon . $message . '.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+            <script>
+                const alertModal = new bootstrap.Modal(document.getElementById("alertModal"));
+                alertModal.show();
+
+                //remove query string
+                window.history.replaceState({}, document.title, window.location.pathname);
+            </script>
+            ';
+    }
+
+
 }
