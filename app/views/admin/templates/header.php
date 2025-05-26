@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title><?= $data["title"] ? $data["title"] : "ADMIN" ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+      body{
+        font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
 </head>
 <body>
 <div style="background-color: #6610f2;">
@@ -26,6 +33,16 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="<?= BASE_URL; ?>students/add">Add</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white px-3 py-1 rounded-pill" 
+              style="background-color: #dc3545;" 
+              href="<?= BASE_URL; ?>auth/logout">
+              Logout
+            </a>
           </li>
         </ul>
       </div>

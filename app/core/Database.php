@@ -53,7 +53,8 @@ class Database {
 
     public function exec() {
         $this->stmt->execute();
-        return $this->stmt->rowCount();
+        // TODO:
+        // return $this->stmt->rowCount();
     }
 
     public function resultSet() {

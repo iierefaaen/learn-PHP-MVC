@@ -59,7 +59,7 @@ class Student_Model {
     }
 
 
-    public function deleteStudentData($id) : int {
+    public function deleteStudentData($id)  {
         $this->db->query("UPDATE students SET deleted_at = NOW() WHERE id=:id");
         $this->db->bind("id", $id);
         return $this->db->exec();
