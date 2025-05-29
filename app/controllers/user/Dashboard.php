@@ -1,7 +1,10 @@
 <?php
 
-class Dashboard {
+class Dashboard extends Controller {
     public function index() {
-        echo "USER/ Home/index.php";
+        $this->user_view("templates/header");
+        $this->user_view("home");
+        $this->user_view("templates/footer");
     }
+
 }

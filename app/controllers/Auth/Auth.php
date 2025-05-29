@@ -24,8 +24,17 @@ class Auth extends Controller {
                 // session_start();
                 if ( session_status() === PHP_SESSION_NONE) session_start();
                 $_SESSION["login"] = "LOGIN";
-                header("Location: " . BASE_URL);
-                exit;
+                $role = $result["role"];
+                if ( $role === "admin" ){
+                    $_SESSION["role"] = "admin";
+                    header("Location: " . BASE_URL);
+                    exit;
+                } else {
+                    $_SESSION["role"] = "user";
+                    echo "USER";
+                    // header("Location: " . BASE_URL . "home");
+                    exit;
+                }
             }
         }
 

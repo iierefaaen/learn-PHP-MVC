@@ -6,6 +6,7 @@ class App {
     protected $params = [];
 
     protected $adminControllerPath = "../app/controllers/admin/";
+    protected $userControllerPath = "../app/controllers/user/";
     protected $authControllerPath = "../app/controllers/Auth/Auth.php";
 
     public function __construct() {
@@ -56,25 +57,50 @@ class App {
 
     private function handleController(&$url) {
         $controllerName = ucfirst($url[0] ?? $this->controller);
-        $controllerFile = $this->adminControllerPath . $controllerName . ".php";
 
-        if (file_exists($controllerFile)) {
-            $this->controller = $controllerName;
-            unset($url[0]);
+        if ( $this->is_admin() ){
+            $controllerFile = $this->adminControllerPath . $controllerName . ".php";
+    
+            if (file_exists($controllerFile)) {
+                $this->controller = $controllerName;
+                unset($url[0]);
+            }
+    
+            require_once $this->adminControllerPath . $this->controller . ".php";
+            $this->controller = new $this->controller;
+        } else {
+            $controllerFile = $this->userControllerPath . $controllerName . ".php";
+    
+            if (file_exists($controllerFile)) {
+                $this->controller = $controllerName;
+                unset($url[0]);
+            }
+    
+            require_once $this->userControllerPath . $this->controller . ".php";
+            $this->controller = new $this->controller;
         }
 
-        require_once $this->adminControllerPath . $this->controller . ".php";
-        $this->controller = new $this->controller;
     }
 
     private function handleMethod(&$url) {
-        if (isset($url[1]) && method_exists($this->controller, $url[1])) {
-            $this->method = $url[1];
-            unset($url[1]);
+        if ( $this->is_admin() ){
+            if (isset($url[1]) && method_exists($this->controller, $url[1])) {
+                $this->method = $url[1];
+                unset($url[1]);
+            }
+        } else {
+            if (isset($url[1]) && method_exists($this->controller, $url[1])) {
+                $this->method = $url[1];
+                unset($url[1]);
+            }
         }
     }
 
     private function handleParams($url) {
         $this->params = array_values($url);
+    }
+
+    private function is_admin(){
+        return $_SESSION["role"] === "admin";
     }
 }
